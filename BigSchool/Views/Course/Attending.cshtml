@@ -1,7 +1,10 @@
 ﻿@model BigSchool.ViewModels.CourseViewModel
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Attending";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+<h2>Attending</h2>
 <div class="row">
     <ul class="course">
         @foreach (var course in Model.UpcommingCourses)
@@ -42,7 +45,7 @@
 @section scripts{
     <script>
         $(document).Ready(function () {
-            $(".js-toggle-attendance").Click(function (e){
+            $(".js-toggle-attendance").Click(function (e) {
                 var button = $(e.target);
                 $.post("/api/attendances", { courseId: button.attr("data-course-id") })
                     .done(function () {
@@ -66,7 +69,9 @@
                     });
             });
         });
-        6
+        
     </script>
 }
+
+
 
